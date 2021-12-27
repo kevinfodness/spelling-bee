@@ -13,24 +13,6 @@ import unseed from './unseed';
 const validateSeed = (seed: number): boolean => {
     const letters = unseed(seed);
 
-    // Ensure no duplicates.
-    let lettersCopy = [...letters];
-    lettersCopy.sort();
-    for (let i = 0; i < lettersCopy.length - 1; i += 1) {
-        if (lettersCopy[i] === lettersCopy[i + 1]) {
-            return false;
-        }
-    }
-    // Ensure at least one vowel. Check in order of vowel frequency for speed.
-    if (!letters.includes('E')
-        && !letters.includes('A')
-        && !letters.includes('I')
-        && !letters.includes('O')
-        && !letters.includes('U')
-    ) {
-        return false;
-    }
-
     // TODO: Compare against dictionary to ensure there is a pangram and total points > 100.
 
     return true;
